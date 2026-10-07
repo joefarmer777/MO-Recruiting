@@ -161,6 +161,10 @@ footer p{margin:4px 0}
 .thanks{display:none;outline:none}
 .thanks h2{color:var(--navy)}
 .btn[disabled]{opacity:.7;cursor:wait}
+.alt{font-size:14px;color:var(--muted);margin:14px 0 0;text-align:center}
+.alt a{font-weight:600}
+.tile a.more{display:inline-block;margin-top:12px;font-weight:600;font-size:15px;text-decoration:none;color:var(--accent)}
+.tile a.more:hover{text-decoration:underline}
 @media (max-width:860px){
   .hero .grid,.cols{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr}
@@ -231,10 +235,13 @@ footer p{margin:4px 0}
         <button class="btn" id="submitBtn" type="submit">Get the details</button>
         <p class="fine">By submitting, you agree to be contacted by phone, text, or email about this opportunity. Message and data rates may apply.</p>
         <p class="err" id="formErr" role="alert"></p>
+        <p class="alt">Have a resume ready? <a class="wk" href="https://apply.workable.com/j/6FB274572A" target="_blank" rel="noopener">Apply directly on our careers page</a></p>
       </form>
       <div class="thanks" id="thanks" tabindex="-1">
         <h2>Thanks, you're all set.</h2>
         <p class="sub">A member of our St. Louis district team will reach out within one business day.</p>
+        <p class="sub" style="margin-top:14px"><strong>Want to move faster?</strong> Finish your full application now and we can skip ahead on the first call.</p>
+        <a class="btn wk" href="https://apply.workable.com/j/6FB274572A" target="_blank" rel="noopener">Complete full application</a>
       </div>
     </div>
   </div>
@@ -257,9 +264,9 @@ footer p{margin:4px 0}
     <h2 class="sec">Find the path that fits you</h2>
     <p class="intro">There is more than one way to become a Farmers agency owner. Our district will help you figure out which entry point makes sense for your experience and resources.</p>
     <div class="cols">
-      <div class="tile"><span class="tag">Start fresh</span><h3>Build a new agency</h3><p>Open your own office from the ground up with startup support and a launch plan built alongside our district team.</p></div>
-      <div class="tile"><span class="tag">Experienced</span><h3>Acquire an existing agency</h3><p>Step into an established book of business when opportunities are available in Missouri, so you start with customers on day one.</p></div>
-      <div class="tile"><span class="tag">New to insurance</span><h3>Learn first, own later</h3><p>Work alongside an existing agency owner, get licensed, and build the skills to run your own agency down the road.</p></div>
+      <div class="tile"><span class="tag">Start fresh</span><h3>Build a new agency</h3><p>Open your own office from the ground up with startup support and a launch plan built alongside our district team.</p><a class="more wk" href="https://apply.workable.com/j/6FB274572A" target="_blank" rel="noopener">Apply as an agency owner &rarr;</a></div>
+      <div class="tile"><span class="tag">Experienced</span><h3>Acquire an existing agency</h3><p>Step into an established book of business when opportunities are available in Missouri, so you start with customers on day one.</p><a class="more wk" href="https://apply.workable.com/j/6FB274572A" target="_blank" rel="noopener">Apply as an agency owner &rarr;</a></div>
+      <div class="tile"><span class="tag">New to insurance</span><h3>Learn first, own later</h3><p>Work alongside an existing agency owner, get licensed, and build the skills to run your own agency down the road.</p><a class="more wk" href="https://apply.workable.com/j/46700DF28F" target="_blank" rel="noopener">Apply as an associate agent &rarr;</a></div>
     </div>
     <p class="fine" style="margin-top:18px">Program availability, incentives, and capital requirements vary. Ask our team for current details in Missouri.</p>
   </div>
@@ -333,6 +340,10 @@ footer p{margin:4px 0}
       var el = document.getElementById(k); if (el && q.get(k)) el.value = q.get(k);
     });
     document.getElementById('page').value = location.href.split('#')[0];
+    var src = q.get('utm_source');
+    if (src) document.querySelectorAll('a.wk').forEach(function(a){
+      a.href += (a.href.indexOf('?') > -1 ? '&' : '?') + 'utm_source=' + encodeURIComponent(src);
+    });
   } catch (e) {}
 
   form.addEventListener('submit', function(ev){
@@ -348,6 +359,7 @@ footer p{margin:4px 0}
       .then(function(res){
         if (String(res.success) !== 'true') { var e = new Error('server'); e.detail = res.message; throw e; }
         form.style.display = 'none';
+        form.parentNode.querySelectorAll(':scope > h2, :scope > p.sub').forEach(function(el){ el.style.display = 'none'; });
         thanks.style.display = 'block';
         thanks.focus();
         // Conversion tracking for Google Ads / Analytics and the Meta Pixel, if installed
