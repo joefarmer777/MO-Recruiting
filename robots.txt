@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://joefarmer777.github.io/MO-Recruiting/sitemap.xml
