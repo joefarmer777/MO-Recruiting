@@ -193,6 +193,25 @@ h2.sec,.cta h2{font-size:27px}
 body{padding-bottom:70px}
 }
 @media (max-width:480px){ .steps{grid-template-columns:1fr} .top a.swap{font-size:12px;padding:5px 10px} }
+.toplinks{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.top a.call{color:#fff;text-decoration:none;font-weight:700;font-size:14px;white-space:nowrap;background:var(--accent);border-radius:999px;padding:7px 14px}
+.top a.call:hover{background:var(--accent-2)}
+.contact{display:flex;gap:28px;align-items:center;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:28px;max-width:820px}
+.contact img{width:96px;height:96px;border-radius:50%;object-fit:cover;flex:none;border:3px solid #fff;box-shadow:0 4px 14px rgba(0,0,0,.15)}
+.contact h2{margin:0 0 6px;font-size:26px}
+.contact p{margin:0;color:var(--muted)}
+.contact-btns{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.contact-btns .btn{width:auto;padding:12px 22px;font-size:16px}
+.btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy)}
+.btn.ghost:hover{background:var(--soft)}
+.cta-call{margin:18px 0 0 !important;font-size:16px}
+.cta-call a{color:#fff;font-weight:700}
+@media (max-width:860px){
+.sticky{display:flex;gap:10px}
+.sticky .btn{flex:1}
+.contact{flex-direction:column;align-items:flex-start;padding:22px}
+}
+@media (max-width:560px){ .top a.swap{display:none} .top a.call span{display:none} }
 
 </style>
 </head>
@@ -201,7 +220,7 @@ body{padding-bottom:70px}
 <header class="top">
 <div class="wrap">
 <div class="brand"><a href="../">Farmers Insurance&reg; District 1457<small>St. Louis Agency Recruiting</small></a></div>
-<a class="swap" href="../illinois/">Recruiting in Illinois &rarr;</a>
+<div class="toplinks"><a class="call" href="tel:+13145687662">Call John <span>(314) 568-7662</span></a><a class="swap" href="../illinois/">Recruiting in Illinois &rarr;</a></div>
 </div>
 </header>
 
@@ -252,6 +271,7 @@ body{padding-bottom:70px}
 <button class="btn" id="submitBtn" type="submit">Get the details</button>
 <p class="fine">By submitting, you agree to be contacted by phone, text, or email about this opportunity. Message and data rates may apply.</p>
 <p class="err" id="formErr" role="alert"></p>
+<p class="alt">Rather talk now? <a href="tel:+13145687662">Call John at (314) 568-7662</a></p>
 <p class="alt">Have a resume ready? <a class="wk" href="https://apply.workable.com/j/6FB274572A" target="_blank" rel="noopener">Apply directly on our careers page</a></p>
 </form>
 <div class="thanks" id="thanks" tabindex="-1">
@@ -259,6 +279,7 @@ body{padding-bottom:70px}
 <p class="sub">A member of our St. Louis district team will reach out within one business day.</p>
 <p class="sub" style="margin-top:14px"><strong>Want to move faster?</strong> Finish your full application now and we can skip ahead on the first call.</p>
 <a class="btn wk" href="https://apply.workable.com/j/6FB274572A" target="_blank" rel="noopener">Complete full application</a>
+<p class="alt">Questions before then? <a href="tel:+13145687662">Call John at (314) 568-7662</a></p>
 </div>
 </div>
 </div>
@@ -311,6 +332,20 @@ body{padding-bottom:70px}
 </section>
 
 <section>
+<div class="wrap">
+<div class="contact">
+<img src="data:image/jpeg;base64,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" alt="John, recruiting contact for our Farmers district" width="96" height="96">
+<div>
+<span class="tag">Your recruiting contact</span>
+<h2>Talk with John</h2>
+<p>John works with everyone who is exploring agency ownership with our district in Missouri. Call or text him with questions, or fill out the form and he will reach out to you.</p>
+<div class="contact-btns"><a class="btn" href="tel:+13145687662">Call (314) 568-7662</a><a class="btn ghost" href="sms:+13145687662">Send a text</a></div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="soft">
 <div class="wrap" style="max-width:820px">
 <h2 class="sec">Frequently asked questions</h2>
 <details><summary>Do I need an insurance license to apply?</summary><p>No. You can start the conversation before you are licensed. You will need Property &amp; Casualty and Life licenses before full appointment as an agency owner, and our district team can point you to the licensing process.</p></details>
@@ -326,6 +361,7 @@ body{padding-bottom:70px}
 <h2>Ready to talk about owning an agency in Missouri?</h2>
 <p>No pressure and no commitment. Just a conversation about whether this is the right fit for you.</p>
 <a class="btn" href="#apply">See if you qualify</a>
+<p class="cta-call">Or call John at <a href="tel:+13145687662">(314) 568-7662</a></p>
 </div>
 </section>
 </main>
@@ -338,7 +374,7 @@ body{padding-bottom:70px}
 </div>
 </footer>
 
-<div class="sticky"><a class="btn" href="#apply">See if you qualify</a></div>
+<div class="sticky"><a class="btn ghost" href="tel:+13145687662">Call John</a><a class="btn" href="#apply">See if you qualify</a></div>
 
 <script>
 (function(){
